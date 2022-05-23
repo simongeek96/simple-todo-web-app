@@ -1,1 +1,90 @@
 @import "zerostyles";
+
+* {
+  font-family: sans-serif;
+}
+
+.heading {
+  &__text {
+    text-align: center;
+    font-size: 2em;
+    font-weight: bold;
+    margin: 15px 0;
+  }
+}
+
+.add-todo {
+  &__wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    margin: 0 auto;
+    height: 50px;
+    width: 360px;
+    background-color: #ff9800;
+    border-radius: 5px;
+  }
+
+  &__input {
+    border: 1px solid black;
+    height: 30px;
+    padding: 5px;
+    width: 250px;
+    border-radius: 5px;
+    margin: 0 10px;
+    &::placeholder {
+      text-indent: 0px;
+      transition: text-ident, 0.3s ease;
+    }
+    &:focus {
+      &::placeholder {
+        text-indent: 500px;
+        transition: text-ident, 0.3s ease;
+      }
+    }
+  }
+
+  &__btn {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    width: 80px;
+    height: 25px;
+    border-radius: 5px;
+    margin: 0 10px 0 0;
+    color: #fff;
+    box-shadow: 0 5px 0 #388e3c;
+    background-color: #4caf50;
+    transition: all ease-in-out 0.1s;
+    position: relative;
+    font-weight: bold;
+    &:hover {
+      background-color: #81c784;
+      box-shadow: 0 5px 0 #66bb6a;
+    }
+    &:active {
+      top: 2px;
+      box-shadow: 0 3px 0 #2e7d32;
+      background-color: #43a047;
+      cursor: pointer;
+    }
+  }
+}
+
+.todos {
+  &__wrapper {
+    display: flex;
+    justify-content: center;
+    margin: 0 0 10px 0;
+  }
+
+  &__heading {
+    font-weight: bold;
+    text-align: center;
+    font-size: 1.5em;
+    margin: 15px 0;
+  }
+}

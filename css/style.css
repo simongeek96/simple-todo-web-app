@@ -82,3 +82,146 @@ h6 {
   font-size: inherit;
   font-weight: 400;
 }
+
+* {
+  font-family: sans-serif;
+}
+
+.heading__text {
+  text-align: center;
+  font-size: 2em;
+  font-weight: bold;
+  margin: 15px 0;
+}
+
+.add-todo__wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 0 auto;
+  height: 50px;
+  width: 360px;
+  background-color: #ff9800;
+  border-radius: 5px;
+}
+
+.add-todo__input {
+  border: 1px solid black;
+  height: 30px;
+  padding: 5px;
+  width: 250px;
+  border-radius: 5px;
+  margin: 0 10px;
+}
+
+.add-todo__input::-webkit-input-placeholder {
+  text-indent: 0px;
+  -webkit-transition: text-ident, 0.3s ease;
+  transition: text-ident, 0.3s ease;
+}
+
+.add-todo__input:-ms-input-placeholder {
+  text-indent: 0px;
+  -webkit-transition: text-ident, 0.3s ease;
+  transition: text-ident, 0.3s ease;
+}
+
+.add-todo__input::-ms-input-placeholder {
+  text-indent: 0px;
+  -webkit-transition: text-ident, 0.3s ease;
+  transition: text-ident, 0.3s ease;
+}
+
+.add-todo__input::placeholder {
+  text-indent: 0px;
+  -webkit-transition: text-ident, 0.3s ease;
+  transition: text-ident, 0.3s ease;
+}
+
+.add-todo__input:focus::-webkit-input-placeholder {
+  text-indent: 500px;
+  -webkit-transition: text-ident, 0.3s ease;
+  transition: text-ident, 0.3s ease;
+}
+
+.add-todo__input:focus:-ms-input-placeholder {
+  text-indent: 500px;
+  -webkit-transition: text-ident, 0.3s ease;
+  transition: text-ident, 0.3s ease;
+}
+
+.add-todo__input:focus::-ms-input-placeholder {
+  text-indent: 500px;
+  -webkit-transition: text-ident, 0.3s ease;
+  transition: text-ident, 0.3s ease;
+}
+
+.add-todo__input:focus::placeholder {
+  text-indent: 500px;
+  -webkit-transition: text-ident, 0.3s ease;
+  transition: text-ident, 0.3s ease;
+}
+
+.add-todo__btn {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  text-align: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  top: 0;
+  width: 80px;
+  height: 25px;
+  border-radius: 5px;
+  margin: 0 10px 0 0;
+  color: #fff;
+  -webkit-box-shadow: 0 5px 0 #388e3c;
+          box-shadow: 0 5px 0 #388e3c;
+  background-color: #4caf50;
+  -webkit-transition: all ease-in-out 0.1s;
+  transition: all ease-in-out 0.1s;
+  position: relative;
+  font-weight: bold;
+}
+
+.add-todo__btn:hover {
+  background-color: #81c784;
+  -webkit-box-shadow: 0 5px 0 #66bb6a;
+          box-shadow: 0 5px 0 #66bb6a;
+}
+
+.add-todo__btn:active {
+  top: 2px;
+  -webkit-box-shadow: 0 3px 0 #2e7d32;
+          box-shadow: 0 3px 0 #2e7d32;
+  background-color: #43a047;
+  cursor: pointer;
+}
+
+.todos__wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 0 0 10px 0;
+}
+
+.todos__heading {
+  font-weight: bold;
+  text-align: center;
+  font-size: 1.5em;
+  margin: 15px 0;
+}
