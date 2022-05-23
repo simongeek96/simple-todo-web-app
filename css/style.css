@@ -37,6 +37,17 @@ body {
   font-size: 14px;
 }
 
+.wrapper {
+  min-height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
 input,
 button,
 textarea {
@@ -87,6 +98,46 @@ h6 {
   font-family: sans-serif;
 }
 
+.container {
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+}
+
+body {
+  color: #222;
+  background: #fff;
+  position: relative;
+  -webkit-transition: all ease-in-out 0.1s;
+  transition: all ease-in-out 0.1s;
+  padding-bottom: 50px;
+}
+
+@media (prefers-color-scheme: light) {
+  body {
+    color: #222;
+    background: #fff;
+    -webkit-transition: all ease-in-out 0.1s;
+    transition: all ease-in-out 0.1s;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    color: #eee;
+    background: #202020;
+    -webkit-transition: all ease-in-out 0.1s;
+    transition: all ease-in-out 0.1s;
+  }
+}
+
+body.dark-theme {
+  color: #eee;
+  background: #202020;
+  -webkit-transition: all ease-in-out 0.1s;
+  transition: all ease-in-out 0.1s;
+}
+
 .heading__text {
   text-align: center;
   font-size: 2em;
@@ -105,18 +156,27 @@ h6 {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  margin: 0 auto;
+  margin: 20px auto;
   height: 50px;
-  width: 360px;
+  max-width: 500px;
   background-color: #ff9800;
   border-radius: 5px;
+}
+
+@media (max-width: 500px) {
+  .add-todo__wrapper {
+    height: 90px;
+    max-width: 350px;
+    -ms-flex-line-pack: distribute;
+        align-content: space-around;
+  }
 }
 
 .add-todo__input {
   border: 1px solid black;
   height: 30px;
   padding: 5px;
-  width: 250px;
+  width: 390px;
   border-radius: 5px;
   margin: 0 10px;
 }
@@ -146,27 +206,27 @@ h6 {
 }
 
 .add-todo__input:focus::-webkit-input-placeholder {
-  text-indent: 500px;
-  -webkit-transition: text-ident, 0.3s ease;
-  transition: text-ident, 0.3s ease;
+  text-indent: 1000px;
+  -webkit-transition: text-ident, 0.5s ease;
+  transition: text-ident, 0.5s ease;
 }
 
 .add-todo__input:focus:-ms-input-placeholder {
-  text-indent: 500px;
-  -webkit-transition: text-ident, 0.3s ease;
-  transition: text-ident, 0.3s ease;
+  text-indent: 1000px;
+  -webkit-transition: text-ident, 0.5s ease;
+  transition: text-ident, 0.5s ease;
 }
 
 .add-todo__input:focus::-ms-input-placeholder {
-  text-indent: 500px;
-  -webkit-transition: text-ident, 0.3s ease;
-  transition: text-ident, 0.3s ease;
+  text-indent: 1000px;
+  -webkit-transition: text-ident, 0.5s ease;
+  transition: text-ident, 0.5s ease;
 }
 
 .add-todo__input:focus::placeholder {
-  text-indent: 500px;
-  -webkit-transition: text-ident, 0.3s ease;
-  transition: text-ident, 0.3s ease;
+  text-indent: 1000px;
+  -webkit-transition: text-ident, 0.5s ease;
+  transition: text-ident, 0.5s ease;
 }
 
 .add-todo__btn {
@@ -209,19 +269,160 @@ h6 {
   cursor: pointer;
 }
 
+h2 {
+  font-weight: bold;
+  text-align: center;
+  font-size: 1.5em;
+  margin: 20px auto;
+}
+
 .todos__wrapper {
+  max-width: 500px;
+  margin: 10px auto;
+}
+
+@media (max-width: 500px) {
+  .todos__wrapper {
+    height: 90px;
+    max-width: 350px;
+  }
+}
+
+.todos__todo-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 1.2em;
+  border-radius: 5px;
+  height: 50px;
+  padding: 10px;
+  background-color: #ffb74d;
+  margin: 10px 0;
+  color: #000;
+  max-width: 500px;
+}
+
+.todos__todo-item.deleting {
+  -webkit-animation: opacity 0.6s ease-in-out;
+          animation: opacity 0.6s ease-in-out;
+}
+
+.todos__description {
+  padding: 0 10px 0 0;
+}
+
+.todos__buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  min-width: 60px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.todos__buttons_complete {
+  width: 25px;
+  height: 25px;
+  border-radius: 5px;
+}
+
+.todos__buttons_delete {
+  width: 25px;
+  height: 25px;
+  border-radius: 5px;
+  color: #fff;
+  background-color: #ef5350;
+  font-size: 15px;
+}
+
+.checked {
+  text-decoration: line-through;
+  background-color: #d39942;
+}
+
+.footer {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  margin: 0 0 10px 0;
+  height: 60px;
+  padding: 0 0 0 0;
 }
 
-.todos__heading {
+.buttons {
+  width: 350px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.btn-toggle {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 140px;
+  height: 30px;
   font-weight: bold;
-  text-align: center;
-  font-size: 1.5em;
-  margin: 15px 0;
+  position: relative;
+  top: 0;
+  border-radius: 5px;
+  color: #fff;
+  -webkit-box-shadow: 0 5px 0 #3f51b5;
+          box-shadow: 0 5px 0 #3f51b5;
+  background-color: #303f9f;
+  -webkit-transition: all ease-in-out 0.1s;
+  transition: all ease-in-out 0.1s;
+}
+
+.btn-toggle:hover {
+  background-color: #7986cb;
+  -webkit-box-shadow: 0 5px 0 #5c6bc0;
+          box-shadow: 0 5px 0 #5c6bc0;
+}
+
+.btn-toggle:active {
+  top: 2px;
+  -webkit-box-shadow: 0 3px 0 #3949ab;
+          box-shadow: 0 3px 0 #3949ab;
+  background-color: #283593;
+  cursor: pointer;
+}
+
+@-webkit-keyframes opacity {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes opacity {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
 }
