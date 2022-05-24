@@ -37,7 +37,7 @@ const createTemplate = (task, index) => {
 const filterTasks = () => {
   const activeTasks = tasks.length && tasks.filter(item => item.completed == false);
   const completedTasks = tasks.length && tasks.filter(item => item.completed == true);
-  tasks = [...activeTasks, ...completedTasks];
+  tasks = [...activeTasks, ...completedTasks].filter(item => item.description.trim() != "");
 }
 
 //filling HTML page
@@ -73,16 +73,31 @@ const completeTask = (index) => {
 
 // adding tasks
 addTaskBtn.addEventListener('click', () => {
+  if (descTaskInput.value == "") {
+    descTaskInput.classList.add('error');
+  } else {
+    tasks.push(new Task(descTaskInput.value));
+    descTaskInput.classList.remove('error');
+    updateLocal();
+    fillHtmlList();
+    descTaskInput.value = '';
+  }
+});
+
+
+/*
+addTaskBtn.addEventListener('click', () => {
   if (descTaskInput.value != "") {
     tasks.push(new Task(descTaskInput.value));
     updateLocal();
     fillHtmlList();
     descTaskInput.value = '';
-  } else {
+  } else if (descTaskInput.value == "" && descTaskInput.value.indexOf(" ") >= 0) {
     alert("Enter task for first!");
+    return false;
   }
-
 });
+*/
 
 //deleting tasks
 const deleteTask = (index) => {

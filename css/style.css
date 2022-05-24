@@ -159,7 +159,7 @@ body.dark-theme {
   margin: 20px auto;
   height: 50px;
   max-width: 500px;
-  background-color: #ff9800;
+  background-color: #b4c7fd;
   border-radius: 5px;
 }
 
@@ -179,54 +179,62 @@ body.dark-theme {
   width: 390px;
   border-radius: 5px;
   margin: 0 10px;
+  -webkit-transition: border, 0.3s ease-in-out;
+  transition: border, 0.3s ease-in-out;
+}
+
+.add-todo__input.error {
+  border: 1px solid red;
+  -webkit-transition: border, 0.3s ease-in-out;
+  transition: border, 0.3s ease-in-out;
 }
 
 .add-todo__input::-webkit-input-placeholder {
   text-indent: 0px;
-  -webkit-transition: text-ident, 0.3s ease;
-  transition: text-ident, 0.3s ease;
+  -webkit-transition: text-ident, 0.3s ease-in-out;
+  transition: text-ident, 0.3s ease-in-out;
 }
 
 .add-todo__input:-ms-input-placeholder {
   text-indent: 0px;
-  -webkit-transition: text-ident, 0.3s ease;
-  transition: text-ident, 0.3s ease;
+  -webkit-transition: text-ident, 0.3s ease-in-out;
+  transition: text-ident, 0.3s ease-in-out;
 }
 
 .add-todo__input::-ms-input-placeholder {
   text-indent: 0px;
-  -webkit-transition: text-ident, 0.3s ease;
-  transition: text-ident, 0.3s ease;
+  -webkit-transition: text-ident, 0.3s ease-in-out;
+  transition: text-ident, 0.3s ease-in-out;
 }
 
 .add-todo__input::placeholder {
   text-indent: 0px;
-  -webkit-transition: text-ident, 0.3s ease;
-  transition: text-ident, 0.3s ease;
+  -webkit-transition: text-ident, 0.3s ease-in-out;
+  transition: text-ident, 0.3s ease-in-out;
 }
 
 .add-todo__input:focus::-webkit-input-placeholder {
   text-indent: 1000px;
-  -webkit-transition: text-ident, 0.5s ease;
-  transition: text-ident, 0.5s ease;
+  -webkit-transition: text-ident, 0.3s ease-in-out;
+  transition: text-ident, 0.3s ease-in-out;
 }
 
 .add-todo__input:focus:-ms-input-placeholder {
   text-indent: 1000px;
-  -webkit-transition: text-ident, 0.5s ease;
-  transition: text-ident, 0.5s ease;
+  -webkit-transition: text-ident, 0.3s ease-in-out;
+  transition: text-ident, 0.3s ease-in-out;
 }
 
 .add-todo__input:focus::-ms-input-placeholder {
   text-indent: 1000px;
-  -webkit-transition: text-ident, 0.5s ease;
-  transition: text-ident, 0.5s ease;
+  -webkit-transition: text-ident, 0.3s ease-in-out;
+  transition: text-ident, 0.3s ease-in-out;
 }
 
 .add-todo__input:focus::placeholder {
   text-indent: 1000px;
-  -webkit-transition: text-ident, 0.5s ease;
-  transition: text-ident, 0.5s ease;
+  -webkit-transition: text-ident, 0.3s ease-in-out;
+  transition: text-ident, 0.3s ease-in-out;
 }
 
 .add-todo__btn {

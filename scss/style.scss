@@ -51,7 +51,7 @@ body.dark-theme {
     margin: 20px auto;
     height: 50px;
     max-width: 500px;
-    background-color: #ff9800;
+    background-color: #b4c7fd;
     border-radius: 5px;
     @media (max-width: 500px) {
       height: 90px;
@@ -67,14 +67,20 @@ body.dark-theme {
     width: 390px;
     border-radius: 5px;
     margin: 0 10px;
+    transition: border, 0.3s ease-in-out;
+
+    &.error {
+      border: 1px solid red;
+      transition: border, 0.3s ease-in-out;
+    }
     &::placeholder {
       text-indent: 0px;
-      transition: text-ident, 0.3s ease;
+      transition: text-ident, 0.3s ease-in-out;
     }
     &:focus {
       &::placeholder {
         text-indent: 1000px;
-        transition: text-ident, 0.5s ease;
+        transition: text-ident, 0.3s ease-in-out;
       }
     }
   }
