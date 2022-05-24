@@ -33,7 +33,7 @@ const createTemplate = (task, index) => {
     `
 }
 
-//filtering tasks, checked/unchecked ones
+//filtering tasks, checked or unchecked ones
 const filterTasks = () => {
   const activeTasks = tasks.length && tasks.filter(item => item.completed == false);
   const completedTasks = tasks.length && tasks.filter(item => item.completed == true);
@@ -73,10 +73,15 @@ const completeTask = (index) => {
 
 // adding tasks
 addTaskBtn.addEventListener('click', () => {
-  tasks.push(new Task(descTaskInput.value));
-  updateLocal();
-  fillHtmlList();
-  descTaskInput.value = '';
+  if (descTaskInput.value != "") {
+    tasks.push(new Task(descTaskInput.value));
+    updateLocal();
+    fillHtmlList();
+    descTaskInput.value = '';
+  } else {
+    alert("Enter task for first!");
+  }
+
 });
 
 //deleting tasks
