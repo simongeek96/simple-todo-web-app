@@ -84,21 +84,6 @@ addTaskBtn.addEventListener('click', () => {
   }
 });
 
-
-/*
-addTaskBtn.addEventListener('click', () => {
-  if (descTaskInput.value != "") {
-    tasks.push(new Task(descTaskInput.value));
-    updateLocal();
-    fillHtmlList();
-    descTaskInput.value = '';
-  } else if (descTaskInput.value == "" && descTaskInput.value.indexOf(" ") >= 0) {
-    alert("Enter task for first!");
-    return false;
-  }
-});
-*/
-
 //deleting tasks
 const deleteTask = (index) => {
   todoItemElems[index].classList.add('deleting');
@@ -115,3 +100,47 @@ const deleteTask = (index) => {
 // toggleLightDark.addEventListener("click", function () {
 //   document.body.classList.toggle("dark-theme");
 // });
+
+
+// this one
+// !localStorage.tasks ? tasks = [] : tasks = JSON.parse(localStorage.getItem('tasks'));
+
+//same as
+
+/*
+if (!localStorage.tasks) {
+  tasks = [];
+} else {
+  tasks = JSON.parse(localStorage.getItem('tasks'));
+}
+*/
+
+// other commented code (experimental)
+
+/*
+addTaskBtn.addEventListener('click', () => {
+  if (descTaskInput.value == "") {
+    descTaskInput.classList.add('error');
+  } else {
+    tasks.unshift(new Task(descTaskInput.value));
+    descTaskInput.classList.remove('error');
+    updateLocal();
+    fillHtmlList();
+    descTaskInput.value = '';
+  }
+});
+*/
+
+/*
+addTaskBtn.addEventListener('click', () => {
+  if (descTaskInput.value != "") {
+    tasks.push(new Task(descTaskInput.value));
+    updateLocal();
+    fillHtmlList();
+    descTaskInput.value = '';
+  } else if (descTaskInput.value == "" && descTaskInput.value.indexOf(" ") >= 0) {
+    alert("Enter task for first!");
+    return false;
+  }
+});
+*/
