@@ -9,6 +9,7 @@ let tasks;
 
 let todoItemElems = [];
 
+// function-constructor
 function Task(description) {
   this.description = description;
   this.completed = false;
@@ -54,7 +55,7 @@ const fillHtmlList = () => {
 
 fillHtmlList();
 
-
+// updating local storage
 const updateLocal = () => {
   localStorage.setItem('tasks', JSON.stringify(tasks));
 }
