@@ -158,14 +158,13 @@ h2 {
     display: flex;
     min-width: 60px;
     justify-content: space-between;
-
-    &_complete {
+    &--complete {
       width: 25px;
       height: 25px;
       border-radius: 5px;
     }
 
-    &_delete {
+    &--delete {
       width: 25px;
       height: 25px;
       border-radius: 5px;

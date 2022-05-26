@@ -335,13 +335,13 @@ h2 {
           justify-content: space-between;
 }
 
-.todos__buttons_complete {
+.todos__buttons--complete {
   width: 25px;
   height: 25px;
   border-radius: 5px;
 }
 
-.todos__buttons_delete {
+.todos__buttons--delete {
   width: 25px;
   height: 25px;
   border-radius: 5px;

@@ -1,8 +1,8 @@
 "use strict"
 
-const addTaskBtn = document.getElementById('add-task-btn');
-const descTaskInput = document.getElementById('description-task');
-const todosWrapper = document.querySelector('.todos__wrapper');
+let addTaskBtn = document.getElementById('add-task-btn');
+let descTaskInput = document.getElementById('description-task');
+let todosWrapper = document.querySelector('.todos__wrapper');
 
 let tasks;
 !localStorage.tasks ? tasks = [] : tasks = JSON.parse(localStorage.getItem('tasks'));
@@ -24,9 +24,9 @@ const createTemplate = (task, index) => {
         ${task.description}
       </div>
       <div class="todos__buttons">
-        <input onclick="completeTask(${index})" type="checkbox" class="todos__buttons_complete" ${task.completed ? 'checked' : ''
+        <input onclick="completeTask(${index})" type="checkbox" class="todos__buttons--complete" ${task.completed ? 'checked' : ''
     }>
-    <button onclick="deleteTask(${index})" class="todos__buttons_delete">
+    <button onclick="deleteTask(${index})" class="todos__buttons--delete">
       <i class="fa-regular fa-trash-can"></i>
     </button>
       </div >
@@ -35,14 +35,16 @@ const createTemplate = (task, index) => {
 }
 
 //filtering tasks, checked or unchecked ones
-const filterTasks = () => {
+function filterTasks() {
   const activeTasks = tasks.length && tasks.filter(item => item.completed == false);
   const completedTasks = tasks.length && tasks.filter(item => item.completed == true);
   tasks = [...activeTasks, ...completedTasks].filter(item => item.description.trim() != "");
 }
 
+fillHtmlList();
+
 //filling HTML page
-const fillHtmlList = () => {
+function fillHtmlList() {
   todosWrapper.innerHTML = "";
   if (tasks.length > 0) {
     filterTasks();
@@ -53,15 +55,15 @@ const fillHtmlList = () => {
   }
 }
 
-fillHtmlList();
+// fillHtmlList();
 
 // updating local storage
-const updateLocal = () => {
+function updateLocal() {
   localStorage.setItem('tasks', JSON.stringify(tasks));
 }
 
 //checking (completing) tasks
-const completeTask = (index) => {
+function completeTask(index) {
   tasks[index].completed = !tasks[index].completed;
   if (tasks[index].completed) {
     todoItemElems[index].classList.add('checked');
@@ -86,7 +88,7 @@ addTaskBtn.addEventListener('click', () => {
 });
 
 //deleting tasks
-const deleteTask = (index) => {
+function deleteTask(index) {
   todoItemElems[index].classList.add('deleting');
   tasks.splice(index, 1);
   setTimeout(() => {
