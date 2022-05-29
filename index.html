@@ -27,8 +27,46 @@
       <h2>
         Added tasks
       </h2>
-      <div class="todos__wrapper">
+      <form class="tasks-filter">
+        <div class="tasks-filter__buttons">
+          <div class="tasks-filter__buttons--radio">
+            <input class="toggletab" type="radio" name="tasksFilter" id="allTasks" onclick="filterTasks()" value="1"
+              checked />
+            <label class="tasks-filter__buttons--btn" for="allTasks">All tasks</label>
+          </div>
+          <div class="tasks-filter__buttons--radio">
+            <input class="toggletab" type="radio" name="tasksFilter" id="activeTasks" onclick="filterTasks()"
+              value="2" />
+            <label class="tasks-filter__buttons--btn" for="activeTasks">Active tasks</label>
+          </div>
+          <div class="tasks-filter__buttons--radio">
+            <input class="toggletab" type="radio" name="tasksFilter" id="completedTasks" onclick="filterTasks()"
+              value="3" />
+            <label class="tasks-filter__buttons--btn" for="completedTasks">Completed tasks</label>
+          </div>
+        </div>
+      </form>
+      <!-- <button onclick="  display()">
+        Check Tab (open DevTools (F12) -> Console)
+      </button> -->
+      <div class="tab" tabname="1">
+        <div class="todos__wrapper">
 
+        </div>
+      </div>
+      <div class="tab d-none" tabname="2">
+        <div class="todos__wrapper">
+          <p>
+            Lorem ipsum dolor sit amet.
+          </p>
+        </div>
+      </div>
+      <div class="tab d-none" tabname="3">
+        <div class="todos__wrapper">
+          <p>
+            Sample text
+          </p>
+        </div>
       </div>
     </div>
   </div>
@@ -50,5 +88,6 @@
 </body>
 
 </html>
+
 
 <!-- i dimd it -->

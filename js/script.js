@@ -2,7 +2,11 @@
 
 let addTaskBtn = document.getElementById('add-task-btn');
 let descTaskInput = document.getElementById('description-task');
+// let radioButtons = document.getElementsByName('tasksFilter');
+let tabs = document.querySelectorAll('.tab');
+let radiobuttons = document.querySelectorAll('.toggletab');
 let todosWrapper = document.querySelector('.todos__wrapper');
+
 
 let tasks;
 !localStorage.tasks ? tasks = [] : tasks = JSON.parse(localStorage.getItem('tasks'));
@@ -34,14 +38,23 @@ const createTemplate = (task, index) => {
     `
 }
 
+
+
 //filtering tasks, checked or unchecked ones
 function filterTasks() {
   const activeTasks = tasks.length && tasks.filter(item => item.completed == false);
   const completedTasks = tasks.length && tasks.filter(item => item.completed == true);
   tasks = [...activeTasks, ...completedTasks].filter(item => item.description.trim() != "");
-}
+  /*
+  tasks = [...activeTasks, ...completedTasks].filter(item => item.description.trim() != ""); //all tasks tab
+  tasks = [...activeTasks].filter(item => item.description.trim() != ""); //active tasks tab
+  tasks = [...completedTasks].filter(item => item.description.trim() != ""); //completed tasks tab
+  ? HOW???
+  ? HOW TO DO THIS???
+*/
 
-fillHtmlList();
+}
+// fillHtmlList();
 
 //filling HTML page
 function fillHtmlList() {
@@ -55,7 +68,31 @@ function fillHtmlList() {
   }
 }
 
-// fillHtmlList();
+fillHtmlList();
+
+for (let x = 0; x < radiobuttons.length; x++) {
+  radiobuttons[x].addEventListener('change', function () {
+    for (let y = 0; y < todosWrapper.lenght; y++) {
+      todosWrapper[y].value = "";
+    }
+    for (let i = 0; i < tabs.length; i++) {
+      tabs[i].classList.add('d-none');
+      if (this.checked && tabs[i].getAttribute('tabname') == this.value) {
+        tabs[i].classList.remove('d-none');
+      }
+    }
+  });
+}
+
+/*
+function checkTabs() {
+  for (let i = 0; i < radioButtons.length; i++) {
+    if (radioButtons[i].checked) {
+      console.log('Tab ' + i + ' selected');
+    }
+  }
+}
+*/
 
 // updating local storage
 function updateLocal() {
@@ -116,34 +153,4 @@ if (!localStorage.tasks) {
 } else {
   tasks = JSON.parse(localStorage.getItem('tasks'));
 }
-*/
-
-// other commented code (experimental)
-
-/*
-addTaskBtn.addEventListener('click', () => {
-  if (descTaskInput.value == "") {
-    descTaskInput.classList.add('error');
-  } else {
-    tasks.unshift(new Task(descTaskInput.value));
-    descTaskInput.classList.remove('error');
-    updateLocal();
-    fillHtmlList();
-    descTaskInput.value = '';
-  }
-});
-*/
-
-/*
-addTaskBtn.addEventListener('click', () => {
-  if (descTaskInput.value != "") {
-    tasks.push(new Task(descTaskInput.value));
-    updateLocal();
-    fillHtmlList();
-    descTaskInput.value = '';
-  } else if (descTaskInput.value == "" && descTaskInput.value.indexOf(" ") >= 0) {
-    alert("Enter task for first!");
-    return false;
-  }
-});
 */
