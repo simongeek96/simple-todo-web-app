@@ -42,8 +42,8 @@ const createTemplate = (task, index) => {
 
 //filtering tasks, checked or unchecked ones
 function filterTasks() {
-  const activeTasks = tasks.length && tasks.filter(item => item.completed == false);
-  const completedTasks = tasks.length && tasks.filter(item => item.completed == true);
+  const activeTasks = tasks.filter(item => item.completed == false);
+  const completedTasks = tasks.filter(item => item.completed == true);
   tasks = [...activeTasks, ...completedTasks].filter(item => item.description.trim() != "");
   /*
   tasks = [...activeTasks, ...completedTasks].filter(item => item.description.trim() != ""); //all tasks tab
@@ -70,6 +70,8 @@ function fillHtmlList() {
 
 fillHtmlList();
 
+// switching tabs
+/*
 for (let x = 0; x < radiobuttons.length; x++) {
   radiobuttons[x].addEventListener('change', function () {
     for (let y = 0; y < todosWrapper.lenght; y++) {
@@ -79,10 +81,18 @@ for (let x = 0; x < radiobuttons.length; x++) {
       tabs[i].classList.add('d-none');
       if (this.checked && tabs[i].getAttribute('tabname') == this.value) {
         tabs[i].classList.remove('d-none');
+
       }
     }
   });
 }
+*/
+
+/*
+radiobuttons.addEventListener('click', () {
+
+});
+*/
 
 /*
 function checkTabs() {
