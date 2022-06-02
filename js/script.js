@@ -1,8 +1,6 @@
 "use strict"
-
 let addTaskBtn = document.getElementById('add-task-btn');
 let descTaskInput = document.getElementById('description-task');
-// let radioButtons = document.getElementsByName('tasksFilter');
 let tabs = document.querySelectorAll('.tab');
 let radiobuttons = document.querySelectorAll('.toggletab');
 let todosWrapper = document.querySelector('.todos__wrapper');
@@ -12,6 +10,9 @@ let tasks;
 !localStorage.tasks ? tasks = [] : tasks = JSON.parse(localStorage.getItem('tasks'));
 
 let todoItemElems = [];
+
+// const activeTasks = tasks.filter(item => item.completed == false);
+// const completedTasks = tasks.filter(item => item.completed == true);
 
 // function-constructor
 function Task(description) {
@@ -38,23 +39,16 @@ const createTemplate = (task, index) => {
     `
 }
 
-
+function clearbox() {
+  todosWrapper.innerHTML = "";
+}
 
 //filtering tasks, checked or unchecked ones
 function filterTasks() {
   const activeTasks = tasks.filter(item => item.completed == false);
   const completedTasks = tasks.filter(item => item.completed == true);
   tasks = [...activeTasks, ...completedTasks].filter(item => item.description.trim() != "");
-  /*
-  tasks = [...activeTasks, ...completedTasks].filter(item => item.description.trim() != ""); //all tasks tab
-  tasks = [...activeTasks].filter(item => item.description.trim() != ""); //active tasks tab
-  tasks = [...completedTasks].filter(item => item.description.trim() != ""); //completed tasks tab
-  ? HOW???
-  ? HOW TO DO THIS???
-*/
-
 }
-// fillHtmlList();
 
 //filling HTML page
 function fillHtmlList() {
@@ -71,38 +65,34 @@ function fillHtmlList() {
 fillHtmlList();
 
 // switching tabs
-/*
-for (let x = 0; x < radiobuttons.length; x++) {
-  radiobuttons[x].addEventListener('change', function () {
-    for (let y = 0; y < todosWrapper.lenght; y++) {
-      todosWrapper[y].value = "";
-    }
-    for (let i = 0; i < tabs.length; i++) {
-      tabs[i].classList.add('d-none');
-      if (this.checked && tabs[i].getAttribute('tabname') == this.value) {
-        tabs[i].classList.remove('d-none');
-
-      }
-    }
+radiobuttons[0].addEventListener('click', () => {
+  clearbox();
+  filterTasks();
+  tasks.forEach((item, index) => {
+    todosWrapper.innerHTML += createTemplate(item, index);
   });
-}
-*/
-
-/*
-radiobuttons.addEventListener('click', () {
-
+  todoItemElems = document.querySelectorAll('.todos__todo-item');
 });
-*/
 
-/*
-function checkTabs() {
-  for (let i = 0; i < radioButtons.length; i++) {
-    if (radioButtons[i].checked) {
-      console.log('Tab ' + i + ' selected');
-    }
-  }
-}
-*/
+radiobuttons[1].addEventListener('click', () => {
+  const activeTasks = tasks.filter(item => item.completed == false);
+  clearbox();
+  filterTasks();
+  activeTasks.forEach((item, index) => {
+    todosWrapper.innerHTML += createTemplate(item, index);
+  });
+  todoItemElems = document.querySelectorAll('.todos__todo-item');
+});
+
+radiobuttons[2].addEventListener('click', () => {
+  const completedTasks = tasks.filter(item => item.completed == true);
+  clearbox();
+  filterTasks();
+  completedTasks.forEach((item, index) => {
+    todosWrapper.innerHTML += createTemplate(item, index);
+  });
+  todoItemElems = document.querySelectorAll('.todos__todo-item');
+});
 
 // updating local storage
 function updateLocal() {
@@ -117,7 +107,9 @@ function completeTask(index) {
   } else {
     todoItemElems[index].classList.remove('checked');
   }
+  // clearbox();
   updateLocal();
+  // filterTasks();
   fillHtmlList();
 }
 
@@ -138,6 +130,8 @@ addTaskBtn.addEventListener('click', () => {
 function deleteTask(index) {
   todoItemElems[index].classList.add('deleting');
   tasks.splice(index, 1);
+  // clearbox();
+  // filterTasks();
   setTimeout(() => {
     updateLocal();
     fillHtmlList();
@@ -151,6 +145,7 @@ function deleteTask(index) {
 //   document.body.classList.toggle("dark-theme");
 // });
 
+/*-------------------------------------*/
 
 // this one
 // !localStorage.tasks ? tasks = [] : tasks = JSON.parse(localStorage.getItem('tasks'));
