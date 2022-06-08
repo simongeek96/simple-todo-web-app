@@ -347,6 +347,106 @@ h2 {
   display: none;
 }
 
+.tasks-filter {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 0 0 40px 0;
+}
+
+.tasks-filter__buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.tasks-filter__buttons--radio {
+  float: left;
+  position: relative;
+  margin: 0 10px;
+  width: 100px;
+  height: 40px;
+  border-radius: 5px;
+}
+
+.tasks-filter__buttons--radio label,
+.tasks-filter__buttons--radio input {
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  color: #fff;
+}
+
+.tasks-filter__buttons--radio label {
+  -webkit-box-shadow: 0 5px 0 #388e3c;
+          box-shadow: 0 5px 0 #388e3c;
+  background-color: #4caf50;
+  -webkit-transition: all ease-in-out 0.1s;
+  transition: all ease-in-out 0.1s;
+  position: relative;
+  font-weight: bold;
+  height: 40px;
+  border-radius: 5px;
+}
+
+.tasks-filter__buttons--radio label:hover {
+  background-color: #81c784;
+  -webkit-box-shadow: 0 5px 0 #66bb6a;
+          box-shadow: 0 5px 0 #66bb6a;
+}
+
+.tasks-filter__buttons--radio label:active {
+  top: 2px;
+  -webkit-box-shadow: 0 3px 0 #2e7d32;
+          box-shadow: 0 3px 0 #2e7d32;
+  background-color: #43a047;
+  cursor: pointer;
+}
+
+.tasks-filter__buttons--radio input[type="radio"] {
+  opacity: 0.011;
+  z-index: 100;
+}
+
+.tasks-filter__buttons--radio input[type="radio"]:checked + label {
+  background-color: #26c6da;
+  -webkit-box-shadow: 0 3px 0 #00acc1;
+          box-shadow: 0 3px 0 #00acc1;
+  top: 2px;
+  color: #fff;
+  -webkit-transition: all ease-in-out 0.3s;
+  transition: all ease-in-out 0.3s;
+  border-radius: 5px;
+}
+
+.tasks-filter__buttons--radio input[type="radio"]:checked + label:hover {
+  background-color: #80deea;
+  -webkit-box-shadow: 0 3px 0 #26c6da;
+          box-shadow: 0 3px 0 #26c6da;
+}
+
+.tasks-filter__buttons--radio label {
+  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  z-index: 90;
+  line-height: 1.3em;
+  text-align: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
 .checked {
   text-decoration: line-through;
   background-color: #d39942;

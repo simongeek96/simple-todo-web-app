@@ -27,10 +27,28 @@
       <h2>
         Added tasks
       </h2>
+      <form class="tasks-filter">
+        <div class="tasks-filter__buttons">
+          <div class="tasks-filter__buttons--radio">
+            <input class="toggletab" type="radio" name="tasksFilter" id="allTasks" checked />
+            <label class="tasks-filter__buttons--btn" for="allTasks">All tasks</label>
+          </div>
+          <div class="tasks-filter__buttons--radio">
+            <input class="toggletab" type="radio" name="tasksFilter" id="activeTasks" />
+            <label class="tasks-filter__buttons--btn" for="activeTasks">Active tasks</label>
+          </div>
+          <div class="tasks-filter__buttons--radio">
+            <input class="toggletab" type="radio" name="tasksFilter" id="completedTasks" />
+            <label class="tasks-filter__buttons--btn" for="completedTasks">Completed tasks</label>
+          </div>
+        </div>
+      </form>
       <div class="todos__wrapper">
 
       </div>
-      <!-- <footer class="footer">
+    </div>
+  </div>
+  <!-- <footer class="footer">
     <div class="buttons">
 
       <button class="btn-toggle">
@@ -43,8 +61,8 @@
       </p>
     </div>
   </footer> -->
-      <script src="https://kit.fontawesome.com/5ad8a33e9c.js" crossorigin="anonymous"></script>
-      <script src="js/script.js"></script>
+  <script src="https://kit.fontawesome.com/5ad8a33e9c.js" crossorigin="anonymous"></script>
+  <script src="js/script.js"></script>
 </body>
 
 </html>
