@@ -5,14 +5,10 @@ let tabs = document.querySelectorAll('.tab');
 let radiobuttons = document.querySelectorAll('.toggletab');
 let todosWrapper = document.querySelector('.todos__wrapper');
 
-
 let tasks;
 !localStorage.tasks ? tasks = [] : tasks = JSON.parse(localStorage.getItem('tasks'));
 
 let todoItemElems = [];
-
-// const activeTasks = tasks.filter(item => item.completed == false);
-// const completedTasks = tasks.filter(item => item.completed == true);
 
 // function-constructor
 function Task(description) {
@@ -39,6 +35,7 @@ const createTemplate = (task, index) => {
     `
 }
 
+// cleaning up page
 function clearbox() {
   todosWrapper.innerHTML = "";
 }
@@ -113,6 +110,19 @@ function completeTask(index) {
   fillHtmlList();
 }
 
+/*
+descTaskInput.oninput = function () {
+  description.textContent = descTaskInput.value;
+  console.log(descTaskInput.value.lenght);
+  if (descTaskInput.value.lenght > 45) {
+    descTaskInput.classList.add('error');
+    addTaskBtn.disabled = true;
+  } else if (descTaskInput.value.lenght <= 45) {
+    descTaskInput.classList.remove('error');
+    addTaskBtn.disabled = false;
+  }
+}
+*/
 // adding tasks
 addTaskBtn.addEventListener('click', () => {
   if (descTaskInput.value == "") {
@@ -130,11 +140,11 @@ addTaskBtn.addEventListener('click', () => {
 function deleteTask(index) {
   todoItemElems[index].classList.add('deleting');
   tasks.splice(index, 1);
-  // clearbox();
-  // filterTasks();
   setTimeout(() => {
     updateLocal();
+    clearbox();
     fillHtmlList();
+    filterTasks();
   }, 500)
 }
 
