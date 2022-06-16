@@ -316,6 +316,14 @@ h2 {
 
 .todos__description {
   padding: 0 10px 0 0;
+  font-size: 16px;
+}
+
+@media (max-width: 768px) {
+  .todos__description {
+    padding: 10px;
+    overflow: scroll;
+  }
 }
 
 .todos__buttons {
@@ -370,6 +378,13 @@ h2 {
   width: 100px;
   height: 40px;
   border-radius: 5px;
+}
+
+@media (max-width: 350px) {
+  .tasks-filter__buttons--radio {
+    margin: 0 5px;
+    width: 80px;
+  }
 }
 
 .tasks-filter__buttons--radio label,

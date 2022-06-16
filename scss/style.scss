@@ -152,6 +152,11 @@ h2 {
   &__description {
     // overflow: scroll;
     padding: 0 10px 0 0;
+    font-size: 16px;
+    @media (max-width: 768px) {
+      padding: 10px;
+      overflow: scroll;
+    }
   }
 
   &__buttons {
@@ -197,6 +202,10 @@ h2 {
     height: 40px;
     // border: 1px solid #000;
     border-radius: 5px;
+    @media (max-width: 350px) {
+      margin: 0 5px;
+      width: 80px;
+    }
 
     & label,
     input {
